@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:paddingTop="10dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <TextView
+                android:text="Identity number"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <!-- first name input -->
+            <EditText
+                android:id="@+id/identity_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:padding="10dp" />
+
+            <!--account type-->
+            <TextView
+                android:text="Account type"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <Spinner
+                android:padding="10dp"
+                android:id="@+id/spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+
+
+            <TextView
+                android:text="First name"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <!-- first name input -->
+            <EditText
+                android:id="@+id/firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:padding="10dp" />
+
+
+            <TextView
+                android:text="Surname"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <!-- surname input -->
+            <EditText
+                android:id="@+id/surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:padding="10dp" />
+
+
+            <!-- Email label -->
+            <TextView
+                android:text="Email"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <!-- Email input -->
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:hint="example@mail.com" />
+
+
+            <!-- Password Label -->
+            <TextView
+                android:text="Password"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <!-- Password input -->
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="textPassword"/>
+
+            <!-- confirm Password Label -->
+            <TextView
+                android:text="Confirm password"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <!-- confirm Password input -->
+            <EditText
+                android:id="@+id/confirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="textPassword"/>
+
+
+
+            <!--&lt;!&ndash; Cell Label &ndash;&gt;-->
+            <!--<TextView-->
+                <!--android:text="Cell number"-->
+                <!--android:textSize="15dp"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:padding="10dp"/>-->
+
+            <!--&lt;!&ndash; Cell input &ndash;&gt;-->
+            <!--<EditText-->
+                <!--android:id="@+id/number"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="10dp"-->
+                <!--android:inputType="phone"/>-->
+
+            <!--&lt;!&ndash; Cell Label &ndash;&gt;-->
+            <!--<TextView-->
+                <!--android:text="Confirm number"-->
+                <!--android:textSize="15dp"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:padding="10dp"/>-->
+
+            <!--&lt;!&ndash; Cell input &ndash;&gt;-->
+            <!--<EditText-->
+                <!--android:id="@+id/confirmNumber"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:inputType="phone"/>-->
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="register"
+                android:id="@+id/register"
+                android:onClick="validateUser"
+                android:layout_margin="10dp"
+                android:background="#009999"
+                android:textColor="@android:color/white"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>

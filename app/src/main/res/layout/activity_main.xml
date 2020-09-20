@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:paddingTop="56dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- Email label -->
+            <TextView
+                android:text="Identity number"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <!-- Email input -->
+            <EditText
+                android:id="@+id/identity_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:hint="" />
+
+
+            <!-- Password Label -->
+            <TextView
+                android:text="Password"
+                android:textSize="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp"/>
+
+            <!-- Password input -->
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="textPassword"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="LOGIN"
+                android:onClick="validateUser"
+                android:id="@+id/login"
+                android:padding="10dp"
+                android:background="#009999"
+                android:textColor="@android:color/white"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+            <TextView
+                android:id="@+id/register"
+                android:onClick="registerUser"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="No account yet? Create one"
+                android:textColor="#0000EE"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="16dip"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>

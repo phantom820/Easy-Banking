@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    app:cardBackgroundColor="#308bec"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/account_type"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:text="Current "
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_below="@+id/account_type"
+            android:textColor="#FFFFFF"
+            android:padding="4dp"
+            android:id="@+id/account_number"
+            android:text="Account number"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/money"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:padding="5dp"
+            android:textSize="18sp"
+            android:text="Money"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/account_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:text="Available balance"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
