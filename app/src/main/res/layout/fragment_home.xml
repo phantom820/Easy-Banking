@@ -2,6 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:background="#000"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardElevation="5dp"
@@ -62,6 +64,7 @@
 
                     <TextView
                         android:id="@+id/pay"
+                        android:onClick="onClick"
                         android:drawableTop="@drawable/ic_wallet_black_24dp"
                         android:text="Pay"
                         android:padding="10dp"
@@ -91,12 +94,12 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/add_account"
+                        android:id="@+id/amanage_account"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableTop="@drawable/ic_add_black_24dp"
+                        android:drawableTop="@drawable/ic_manage_black_24dp"
                         android:padding="10dp"
-                        android:text="Add account"
+                        android:text="Manage accounts"
                         android:textAlignment="center"
                         android:textSize="18sp" />
 

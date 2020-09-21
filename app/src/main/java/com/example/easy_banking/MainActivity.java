@@ -8,6 +8,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityPrese
     private EditText identityNumber;
 //    private EditText email;
     private EditText password;
-    private ProgressBar progressBar;
+    private ProgressBarHandler progressBarHandler;
     private AppCompatButton login;
     private TextView register;
 
@@ -104,24 +106,18 @@ public class MainActivity extends AppCompatActivity implements MainActivityPrese
     }
 
     private void initProgressBar(){
-        progressBar = new ProgressBar(this, null, android.R.attr.progressBarStyleSmall);
-
-        progressBar.setIndeterminate(true);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Resources.getSystem().getDisplayMetrics().widthPixels,
-                250);
-        params.addRule(RelativeLayout.CENTER_IN_PARENT);
-        this.addContentView(progressBar, params);
+        progressBarHandler=new ProgressBarHandler(this);
         hideProgressBar();
     }
 
     @Override
     public void showProgressBar() {
-        progressBar.setVisibility(View.VISIBLE);
+        progressBarHandler.show();
     }
 
     @Override
     public void hideProgressBar() {
-        progressBar.setVisibility(View.INVISIBLE);
+        progressBarHandler.hide();
     }
 
     @Override

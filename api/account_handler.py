@@ -77,4 +77,7 @@ class AccountHandler:
 					
 			except:
 					return "Account update error"
-	
+
+#make a payment
+	def make_payment(self,request):
+		targ

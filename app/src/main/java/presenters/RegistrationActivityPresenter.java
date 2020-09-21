@@ -131,9 +131,15 @@ public class RegistrationActivityPresenter {
                 @Override
                 public void onResponse(Call<Client> call, Response<Client> response) {
                     System.out.println(response.body());
+
                     Client c=response.body();
+
                     view.hideProgressBar();
+
+                    if(c!=null)
                     view.navigateToHome(c);
+
+                    return;
                 }
 
                 @Override

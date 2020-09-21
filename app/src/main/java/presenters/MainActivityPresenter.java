@@ -67,7 +67,7 @@ public class MainActivityPresenter {
 
                     List<Client>result=response.body();
 
-                    if (result.size()>0){
+                    if (result!=null && result.size()>0){
                         view.hideProgressBar();
                         view.navigateToHome(result.get(0));
                     }

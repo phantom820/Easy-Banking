@@ -22,8 +22,9 @@ public class HomeFragmentPresenter {
         this.view=view;
     }
 
-    public void getAccounts(){
 
+    public void getAccounts(){
+        view.showProgressBar();
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
         Call<List<Account>> call = service.getAccounts(client.getIdentityNumber());
 
@@ -31,11 +32,17 @@ public class HomeFragmentPresenter {
             @Override
             public void onResponse(Call<List<Account>> call, Response<List<Account>> response) {
                 List<Account>accounts=response.body();
-                view.displayAccounts(accounts);
+                if(accounts!=null) {
+                    view.displayAccounts(accounts);
+                    view.updateAccounts(accounts);
+                }
+
+                view.hideProgressBar();
             }
 
             @Override
             public void onFailure(Call<List<Account>> call, Throwable t) {
+                view.hideProgressBar();
                 System.out.println("fail "+t.toString());
             }
         });
@@ -43,7 +50,10 @@ public class HomeFragmentPresenter {
     }
 
     public interface View{
+        void showProgressBar();
+        void hideProgressBar();
         void getAccounts();
         void displayAccounts(List<Account>accounts);
+        void updateAccounts(List<Account>accounts);
     }
 }

@@ -16,6 +16,10 @@ def accounts():
     handler=account_handler.AccountHandler()
     return  handler.handle_request(request)
 
+@application.rouute("/accounts/pay",methods=["PATCH"])
+def accounts_pay():
+    handler=account_handler.AccountHandler()
+    return  handler.
 #handle request for bookings mostly client app
 @application.route("/clients",methods=['GET','POST','PATCH'])
 def tenants():

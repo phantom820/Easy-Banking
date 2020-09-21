@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //retrieve client
         client= (Client) getIntent().getSerializableExtra("client");
-
+        setTitle("");
         if(savedInstanceState==null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment(client)).commit();
         }

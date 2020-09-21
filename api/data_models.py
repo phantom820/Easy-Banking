@@ -39,3 +39,19 @@ class Account:
 		json={"account_number":self.account_number,"type":self.type,"balance":self.balance,"active":self.active,"identity_number":self.identity_number,"debits":self.debits}
 		return json
 
+class Debit:
+	def __init__(self,date,debit_amount,balance,description):
+		self.date=date
+		self.debit_amount=debit_amount
+		self.balance=balance
+		self.description=description
+	
+	def __str__(self):
+		json={"date":self.date,"debit_amount":self.debit_amount,"balance":self.balance,"description":self.description}
+		return str(json)
+
+	def to_map(self):
+		json={"date":self.date,"debit_amount":self.debit_amount,"balance":self.balance,"description":self.description}
+		return json
+
+
