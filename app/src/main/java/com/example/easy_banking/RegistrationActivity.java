@@ -34,7 +34,7 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
     private  EditText confirmPassword;
     private Spinner spinner;
     private AppCompatButton register;
-    private ProgressBar progressBar;
+    private ProgressBarHandler progressBarHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,12 +183,7 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
     }
 
     private void initProgressBar(){
-        progressBar = new ProgressBar(this, null, android.R.attr.progressBarStyleSmall);
-        progressBar.setIndeterminate(true);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Resources.getSystem().getDisplayMetrics().widthPixels,
-                250);
-        params.addRule(RelativeLayout.CENTER_IN_PARENT);
-        this.addContentView(progressBar, params);
+        progressBarHandler=new ProgressBarHandler(this);
         hideProgressBar();
     }
 
@@ -198,12 +193,12 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
 
     @Override
     public void showProgressBar() {
-        progressBar.setVisibility(View.VISIBLE);
+        progressBarHandler.show();
     }
 
     @Override
     public void hideProgressBar() {
-        progressBar.setVisibility(View.INVISIBLE);
+        progressBarHandler.hide();
     }
 
     @Override

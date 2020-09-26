@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.List;
 
 import models.Account;
@@ -59,15 +60,19 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
         //bind onclick listeners
         pay.setOnClickListener(this);
 
-        //get accounts
-        getAccounts();
-
         return  view;
     }
 
     public void initProgressBar(){
         progressBarHandler=new ProgressBarHandler(getActivity());
         hideProgressBar();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fragmentItems.removeAllViews();
+        getAccounts();
     }
 
 
@@ -88,9 +93,6 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
     }
 
 
-    public void updateAccounts(List<Account>accounts){
-        this.accounts=accounts;
-    }
 
     @Override
     public void displayAccounts(List<Account>accounts) {
@@ -127,6 +129,7 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
                 break;
         }
 
+        nextPage.putExtra("activeAccounts",(Serializable) presenter.getActiveAccounts());
         startActivity(nextPage);
     }
 }

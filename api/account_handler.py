@@ -5,16 +5,21 @@ import data_models
 import data_processing
 import pandas as pd
 import os
+from datetime import datetime
+
 
 #load connection string
 load_dotenv()
 
 class AccountHandler:
-	def handle_request(self,request):
+
+	def __init__(self):
 		self.client=pymongo.MongoClient(os.getenv("MONGO_URL"))
 		self.database=self.client["Easy-Banking"]
 		self.accounts=self.database["Accounts"]
 
+
+	def handle_request(self,request):
 		if request.method=="GET":
 			identity_number=request.args.get("identity_number")
 			parameters={}
@@ -80,4 +85,46 @@ class AccountHandler:
 
 #make a payment
 	def make_payment(self,request):
-		targ
+		parameters=request.get_json()
+		payer=parameters["payer"]
+		payee=parameters["payee"]
+
+		payer_debit=[{"date":datetime.now().timestamp(),"debit_amount":payer["debit_amount"],"balance":payer["balance"],
+		"description":payer["description"],"reference":payer["reference"]}]
+		payer_parameters={"account_number":int(parameters["payer_account"]),"balance":payer["balance"],"debits":payer_debit}
+
+		payee_debit=[{"date":datetime.now().timestamp(),"debit_amount":payee["debit_amount"],
+		"description":payee["description"],"reference":payee["reference"]}]
+		payee_parameters={"account_number":int(parameters["payee_account"]),"debits":payee_debit}
+
+		try:
+			# payer updates
+			debits=payer_parameters.pop("debits",None)
+			query = { "account_number": int(payer_parameters["account_number"])}
+			new_values1 = { "$set": payer_parameters}
+			self.accounts.update_one(query, new_values1)
+			if debits!=None:
+				self.accounts.update(query,{ "$push": { "debits": { "$each": debits} } })
+
+			#payee updates
+			debits=payee_parameters.pop("debits",None)
+			query = { "account_number": int(payee_parameters["account_number"])}
+			print(query)
+			if self.accounts.find(query).count()==1:
+				self.accounts.update(query,{{ "$inc": { "balance": payee_parameters["debit_amount"]}}})
+
+				if debits!=None:
+						print("second update")
+						self.accounts.update(query,{ "$push": { "debits": { "$each": debits} } })
+			else:
+				print("account does not exist")
+
+			return str(new_values1)
+		
+		except:
+			return "payment error"
+
+		# print(parameters)
+		# print(payer)
+		# print(payee)
+		return "1"

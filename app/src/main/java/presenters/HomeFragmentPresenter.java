@@ -2,6 +2,7 @@ package presenters;
 
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import models.Account;
@@ -16,6 +17,7 @@ public class HomeFragmentPresenter {
 
     private Client client;
     private View view;
+    private List<Account>accounts;
 
     public HomeFragmentPresenter(View view,Client client){
         this.client=client;
@@ -31,10 +33,10 @@ public class HomeFragmentPresenter {
         call.enqueue(new Callback<List<Account>>() {
             @Override
             public void onResponse(Call<List<Account>> call, Response<List<Account>> response) {
-                List<Account>accounts=response.body();
-                if(accounts!=null) {
-                    view.displayAccounts(accounts);
-                    view.updateAccounts(accounts);
+                List<Account>retrievedAccounts=response.body();
+                if(retrievedAccounts!=null) {
+                    view.displayAccounts(retrievedAccounts);
+                    accounts=retrievedAccounts;
                 }
 
                 view.hideProgressBar();
@@ -49,11 +51,22 @@ public class HomeFragmentPresenter {
 
     }
 
+    public List<Account> getActiveAccounts(){
+        List<Account>activeAccounts=new ArrayList<>();
+        for(int i=0;i<accounts.size();++i){
+            Account account=accounts.get(i);
+            if(account.isActive()){
+                activeAccounts.add(account);
+            }
+        }
+
+        return  activeAccounts;
+    }
+
     public interface View{
         void showProgressBar();
         void hideProgressBar();
         void getAccounts();
         void displayAccounts(List<Account>accounts);
-        void updateAccounts(List<Account>accounts);
     }
 }

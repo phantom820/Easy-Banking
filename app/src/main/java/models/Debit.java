@@ -5,20 +5,24 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Debit implements Serializable {
-    
+
+
     @SerializedName("date")
-    private  long date;
+    private  double date;
 
     @SerializedName("debit_amount")
-    private double debitAmount;
+    private double debitAmount=-1;
 
     @SerializedName("balance")
     private double balance;
 
+    @SerializedName("reference")
+    private String reference;
+
     @SerializedName("description")
     private String description;
 
-    public long getDate() {
+    public double getDate() {
         return date;
     }
 
@@ -38,7 +42,6 @@ public class Debit implements Serializable {
         return description;
     }
 
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -49,6 +52,14 @@ public class Debit implements Serializable {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
 }
