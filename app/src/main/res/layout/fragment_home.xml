@@ -94,7 +94,8 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/amanage_account"
+                        android:id="@+id/manage_account"
+                        android:onClick="onClick"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableTop="@drawable/ic_manage_black_24dp"

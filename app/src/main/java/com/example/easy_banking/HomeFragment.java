@@ -21,6 +21,7 @@ import java.util.List;
 
 import models.Account;
 import models.Client;
+import models.Transaction;
 import presenters.HomeFragmentPresenter;
 import presenters.MainActivityPresenter;
 
@@ -31,6 +32,7 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
     private TextView initials;
     private TextView nameSurname;
     private  TextView pay;
+    private  TextView manageAccounts;
     private LinearLayout fragmentItems;
     private ProgressBarHandler progressBarHandler;
     private List<Account>accounts;
@@ -50,6 +52,8 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
         nameSurname=(TextView)view.findViewById(R.id.name_surname);
         pay=(TextView) view.findViewById(R.id.pay);
         fragmentItems=(LinearLayout) view.findViewById(R.id.fragment_items);
+        manageAccounts=(TextView)view.findViewById(R.id.manage_account);
+
         //set the name and surname stuff here
         initials.setText(client.getName().charAt(0)+""+client.getSurname().charAt(0));
         nameSurname.setText(client.getName().charAt(0)+" "+client.getSurname());
@@ -59,7 +63,7 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
 
         //bind onclick listeners
         pay.setOnClickListener(this);
-
+        manageAccounts.setOnClickListener(this);
         return  view;
     }
 
@@ -104,6 +108,15 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
             View spaceView = inflater.inflate(R.layout.card_spacing,null);
             View cardView = inflater.inflate(R.layout.account_card, null);
 
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent nextPage=new Intent(getContext(),TransactionsActivity.class);
+                    nextPage.putExtra("activeAccounts",(Serializable) presenter.getActiveAccounts());
+                    startActivity(nextPage);
+                }
+            });
+
             TextView accountType=(TextView)cardView.findViewById(R.id.account_type);
             TextView accountNumber=(TextView)cardView.findViewById(R.id.account_number);
             TextView accountBalance=(TextView)cardView.findViewById(R.id.money);
@@ -126,6 +139,10 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
         switch (v.getId()){
             case R.id.pay:
                 nextPage=new Intent(getContext(),PaymentActivity.class);
+                break;
+
+            case R.id.manage_account:
+                nextPage=new Intent(getContext(),ManageAccountsActivity.class);
                 break;
         }
 

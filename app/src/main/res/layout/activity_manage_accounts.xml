@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManageAccountsActivity">
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/ic_add_black_24dp"
+            android:layout_margin="16dp"
+            app:backgroundTint="#000"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <TextView
+                    android:padding="10dp"
+                    android:text="Accounts"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ScrollView
+                    android:scrollbars="none"
+                    android:layout_margin="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/active_account_items"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </LinearLayout>
+
+                </ScrollView>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

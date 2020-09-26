@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".ManageAccountsActivity"></activity>
+        <activity android:name=".TransactionsActivity" />
+        <activity android:name=".PaymentActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home" />

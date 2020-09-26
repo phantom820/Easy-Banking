@@ -109,7 +109,6 @@ class AccountHandler:
 			#payee updates
 			debits=payee_parameters.pop("debits",None)
 			query = { "account_number": int(payee_parameters["account_number"])}
-			print(query)
 			if self.accounts.find(query).count()==1:
 				self.accounts.update(query,{{ "$inc": { "balance": payee_parameters["debit_amount"]}}})
 
