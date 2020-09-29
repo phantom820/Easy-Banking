@@ -84,16 +84,6 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:id="@+id/cash_send"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableTop="@drawable/ic_cash_24dp"
-                        android:padding="10dp"
-                        android:text="CashSend"
-                        android:textAlignment="center"
-                        android:textSize="18sp" />
-
-                    <TextView
                         android:id="@+id/manage_account"
                         android:onClick="onClick"
                         android:layout_width="wrap_content"
@@ -103,6 +93,18 @@
                         android:text="Manage accounts"
                         android:textAlignment="center"
                         android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/cash_send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_cash_24dp"
+                        android:padding="10dp"
+                        android:text="CashSend"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+
 
 
                     <TextView

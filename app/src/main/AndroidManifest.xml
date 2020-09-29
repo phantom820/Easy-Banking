@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ManageAccountsActivity"></activity>
+        <activity android:name=".TransfersActivity"></activity>
+        <activity android:name=".ManageAccountsActivity" />
         <activity android:name=".TransactionsActivity" />
         <activity android:name=".PaymentActivity" />
         <activity

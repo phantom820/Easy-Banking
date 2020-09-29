@@ -26,6 +26,10 @@ public interface GetDataService {
     @GET("/accounts")
     Call<List<Account>> getAccounts(@Query("identity_number") String identityNumber);
 
+    @POST("/accounts")
+    Call<String> addAccount(@Body Account account);
+
+
     @PATCH("/accounts/pay")
     Call<String>makePayment(@Body Transaction transaction);
 

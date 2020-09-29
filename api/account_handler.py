@@ -57,7 +57,7 @@ class AccountHandler:
 							account=data_models.Account(account_number,parameters["type"],parameters["balance"],parameters["active"],parameters["identity_number"],[])
 							account=account.to_map()
 							self.accounts.insert_one(account)
-							return str(account)
+							return str(account_number)
 					
 					#must implement proper error handling
 					else:
@@ -89,11 +89,11 @@ class AccountHandler:
 		payer=parameters["payer"]
 		payee=parameters["payee"]
 
-		payer_debit=[{"date":datetime.now().timestamp(),"debit_amount":payer["debit_amount"],"balance":payer["balance"],
+		payer_debit=[{"date":datetime.now().timestamp()*1000,"debit_amount":payer["debit_amount"],"balance":payer["balance"],
 		"description":payer["description"],"reference":payer["reference"]}]
 		payer_parameters={"account_number":int(parameters["payer_account"]),"balance":payer["balance"],"debits":payer_debit}
 
-		payee_debit=[{"date":datetime.now().timestamp(),"debit_amount":payee["debit_amount"],
+		payee_debit=[{"date":datetime.now().timestamp()*1000,"debit_amount":payee["debit_amount"],
 		"description":payee["description"],"reference":payee["reference"]}]
 		payee_parameters={"account_number":int(parameters["payee_account"]),"debits":payee_debit}
 
@@ -109,10 +109,17 @@ class AccountHandler:
 			#payee updates
 			debits=payee_parameters.pop("debits",None)
 			query = { "account_number": int(payee_parameters["account_number"])}
-			if self.accounts.find(query).count()==1:
-				self.accounts.update(query,{{ "$inc": { "balance": payee_parameters["debit_amount"]}}})
+			doc=self.accounts.find(query)
 
+			if doc.count()==1:
+				print("found 1")
+				print(doc[0]["balance"])
+				print(payee_debit[0]["debit_amount"])
+				print(debits)
+				self.accounts.update_one(query,{ "$set": { "balance": doc[0]["balance"]+payee_debit[0]["debit_amount"]}})
+				print(debits)
 				if debits!=None:
+						debits[0]["balance"]=doc[0]["balance"]
 						print("second update")
 						self.accounts.update(query,{ "$push": { "debits": { "$each": debits} } })
 			else:

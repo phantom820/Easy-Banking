@@ -112,7 +112,8 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
                 @Override
                 public void onClick(View v) {
                     Intent nextPage=new Intent(getContext(),TransactionsActivity.class);
-                    nextPage.putExtra("activeAccounts",(Serializable) presenter.getActiveAccounts());
+                    TextView accountNumber=(TextView)v.findViewById(R.id.account_number);
+                    nextPage.putExtra("selectedAccount",(Serializable) presenter.getSelectedAccount(accountNumber.getText().toString()));
                     startActivity(nextPage);
                 }
             });
@@ -139,14 +140,23 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
         switch (v.getId()){
             case R.id.pay:
                 nextPage=new Intent(getContext(),PaymentActivity.class);
+                nextPage.putExtra("activeAccounts",(Serializable) presenter.getActiveAccounts());
                 break;
 
             case R.id.manage_account:
                 nextPage=new Intent(getContext(),ManageAccountsActivity.class);
+                nextPage.putExtra("accounts",(Serializable) presenter.getAccountsOffline());
+                nextPage.putExtra("client",client);
+                break;
+
+            case R.id.transfer:
+                nextPage=new Intent(getContext(),TransfersActivity.class);
+                nextPage.putExtra("activeAccounts",(Serializable) presenter.getActiveAccounts());
+                nextPage.putExtra("accounts",(Serializable) presenter.getAccountsOffline());
                 break;
         }
 
-        nextPage.putExtra("activeAccounts",(Serializable) presenter.getActiveAccounts());
+
         startActivity(nextPage);
     }
 }

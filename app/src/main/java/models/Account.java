@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Account implements Serializable {
 
@@ -112,7 +113,6 @@ public class Account implements Serializable {
     public void setDebits(ArrayList<Debit> debits) {
         this.debits = debits;
     }
-
 
 
 }

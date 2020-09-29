@@ -63,6 +63,20 @@ public class HomeFragmentPresenter {
         return  activeAccounts;
     }
 
+    public Account getSelectedAccount(String accountNumber){
+        for(int i=0;i<accounts.size();++i){
+            Account account=accounts.get(i);
+            if(account.getAccountNumber().equals(accountNumber)){
+                return  account;
+            }
+        }
+        return  null;
+    }
+
+    public List<Account> getAccountsOffline(){
+        return  this.accounts;
+    }
+
     public interface View{
         void showProgressBar();
         void hideProgressBar();

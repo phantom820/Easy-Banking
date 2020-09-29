@@ -34,9 +34,9 @@ def synthetic_transactions():
     daily_expenses["reference"]=references
     transactions=pd.concat([monthly_expenses,daily_expenses,monthly_income])
     transactions=transactions.sort_values(by="date",ascending=False)
-    transactions["balance"]=50000+np.cumsum(transactions["debit_amount"].values)
+    transactions["balance"]=50000-np.cumsum(transactions["debit_amount"].values)
     transaction_json = json.loads(transactions.to_json(orient='records'))
-    balance=transactions["balance"].values[-1]
+    balance=transactions["balance"].values[0]+transactions["debit_amount"].values[0]
     
     return transaction_json,np.round(balance,2)
 	

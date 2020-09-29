@@ -40,11 +40,23 @@
             android:textColor="#FFFFFF"
             android:padding="4dp"
             android:id="@+id/reference"
-            android:text="Description"
+            android:text="Reference"
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+
+        <TextView
+            android:id="@+id/m"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:text="Amount"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/money"
@@ -54,17 +66,33 @@
             android:textSize="18sp"
             android:text="Money"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/reference"
+            android:layout_below="@+id/m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <TextView
+            android:id="@+id/av"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:padding="5dp"
+            android:textSize="18sp"
+            android:text="Available balance"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:padding="10dp"
-            android:textSize="15sp"
+            android:id="@+id/available_balance"
+            android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:text="Available balance"
+            android:padding="5dp"
+            android:textSize="18sp"
+            android:text="Money"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/money"
+            android:layout_below="@+id/av"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

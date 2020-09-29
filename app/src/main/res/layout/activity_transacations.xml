@@ -15,7 +15,7 @@
 
     <androidx.cardview.widget.CardView
         app:cardCornerRadius="10dp"
-
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         app:cardBackgroundColor="#000"
@@ -78,15 +78,53 @@
             android:layout_height="match_parent">
 
 
-        <TextView
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:text="Transactions"
-            android:textSize="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/label"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:text="Transactions"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="To"
+                    android:gravity="center"
+                    android:id="@+id/end"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:drawableLeft="@drawable/ic_today_black_24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/start"
+                    android:text="from"
+                    android:gravity="center"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:drawableLeft="@drawable/ic_today_black_24dp"
+                    android:layout_toLeftOf="@id/end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
 
         <ScrollView
+            android:layout_marginTop="20dp"
 
             android:scrollbars="none"
             android:layout_margin="15dp"
@@ -94,6 +132,9 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:layout_marginTop="20dp"
+                android:paddingBottom="20dp"
+                android:layout_marginBottom="30dp"
                 android:orientation="vertical"
                 android:id="@+id/transaction_items"
                 android:layout_width="wrap_content"

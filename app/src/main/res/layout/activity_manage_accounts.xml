@@ -32,6 +32,7 @@
                     android:padding="10dp"
                     android:text="Accounts"
                     android:textSize="16dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -43,7 +44,7 @@
 
                         <LinearLayout
                             android:orientation="vertical"
-                            android:id="@+id/active_account_items"
+                            android:id="@+id/account_items"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
