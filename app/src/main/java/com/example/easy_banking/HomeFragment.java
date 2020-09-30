@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
     private TextView nameSurname;
     private  TextView pay;
     private  TextView manageAccounts;
+    private TextView transfers;
     private LinearLayout fragmentItems;
     private ProgressBarHandler progressBarHandler;
     private List<Account>accounts;
@@ -51,6 +52,8 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
         initials=(TextView)view.findViewById(R.id.initials);
         nameSurname=(TextView)view.findViewById(R.id.name_surname);
         pay=(TextView) view.findViewById(R.id.pay);
+        transfers=(TextView)view.findViewById(R.id.transfer);
+
         fragmentItems=(LinearLayout) view.findViewById(R.id.fragment_items);
         manageAccounts=(TextView)view.findViewById(R.id.manage_account);
 
@@ -64,6 +67,8 @@ public class HomeFragment extends Fragment implements HomeFragmentPresenter.View
         //bind onclick listeners
         pay.setOnClickListener(this);
         manageAccounts.setOnClickListener(this);
+        transfers.setOnClickListener(this);
+
         return  view;
     }
 

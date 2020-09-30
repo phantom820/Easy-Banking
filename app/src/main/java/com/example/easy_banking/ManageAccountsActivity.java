@@ -46,6 +46,8 @@ public class ManageAccountsActivity extends AppCompatActivity implements ManageA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_accounts);
 
+        setTitle("Manage Accounts");
+
         accounts=(List<Account>)getIntent().getSerializableExtra("accounts");
         client=(Client)getIntent().getSerializableExtra("client");
 

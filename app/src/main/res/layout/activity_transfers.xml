@@ -130,6 +130,8 @@
 
             <!-- first name input -->
             <Spinner
+                android:padding="10dp"
+                android:layout_marginBottom="12dp"
                 android:id="@+id/payee_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -270,11 +272,11 @@
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_marginBottom="20dp"
-                        android:text="Pay"
+                        android:text="Transfer"
                         android:layout_gravity="center"
-                        android:id="@+id/register"
+                        android:onClick="transfer"
+                        android:id="@+id/transfer"
                         android:padding="10dp"
-                        android:onClick="stuff"
                         android:layout_centerInParent="true"
                         android:background="@android:color/transparent"
                         android:textColor="@android:color/white"

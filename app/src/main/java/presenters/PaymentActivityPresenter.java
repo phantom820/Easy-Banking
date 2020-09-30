@@ -19,7 +19,6 @@ import retrofit2.Response;
 public class PaymentActivityPresenter {
 
     private List<Account> accounts;
-    private View v;
     private Debit payer;
     private  Debit payee;
     private  View view;
@@ -110,8 +109,14 @@ public class PaymentActivityPresenter {
             state=false;
         }
 
-        if(payer.getDebitAmount()==-1 || payee.getDebitAmount()==-1){
+        if(payer.getDebitAmount()==-1 || payee.getDebitAmount()==-1 ){
             view.setAmountError("Field cannot be empty");
+            state=false;
+        }
+
+        if(payee.getDebitAmount()==0 || payee.getDebitAmount()<20){
+            view.setAmountError("Amount must be at least R20");
+            state=false;
         }
 
 
@@ -149,17 +154,21 @@ public class PaymentActivityPresenter {
             transaction.setPayee(payee);
 
             GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-            Call<String>call=service.makePayment(transaction);
-            call.enqueue(new Callback<String>() {
+            Call<Object>call=service.makePayment(transaction);
+            call.enqueue(new Callback<Object>() {
                 @Override
-                public void onFailure(Call<String> call, Throwable t) {
+                public void onFailure(Call<Object> call, Throwable t) {
+                    view.showErrorSnackBar("Payment unsuccessful");
                     view.hideProgressBar();
-                    view.exit();
+
                 }
 
                 @Override
-                public void onResponse(Call<String> call, Response<String> response) {
+                public void onResponse(Call<Object> call, Response<Object> response) {
+                    view.showSuccessSnackBar("Payment successful");
                     view.hideProgressBar();
+                    view.exit();
+
                 }
             });
         }
@@ -175,6 +184,8 @@ public class PaymentActivityPresenter {
         void updateAvailableBalance(String balance);
         void showProgressBar();
         void hideProgressBar();
+        void showSuccessSnackBar(String msg);
+        void showErrorSnackBar(String err);
         void exit();
     }
 }

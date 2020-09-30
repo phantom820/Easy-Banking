@@ -42,6 +42,8 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transacations);
 
+        setTitle("Transactions");
+
         //retrive extras
         selectedAccount=(Account) getIntent().getSerializableExtra("selectedAccount");
         presenter=new TransactionsActivityPresenter(this,selectedAccount);

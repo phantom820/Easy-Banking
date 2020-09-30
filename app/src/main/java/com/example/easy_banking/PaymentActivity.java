@@ -2,6 +2,7 @@ package com.example.easy_banking;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -228,12 +229,28 @@ public class PaymentActivity extends AppCompatActivity implements PaymentActivit
     }
 
     @Override
-    public void exit() {
-        Toast.makeText(getApplicationContext(),"Payment successful",Toast.LENGTH_SHORT).show();
-        finish();
-
-
+    public void showSuccessSnackBar(String msg) {
+        Snackbar snackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG)
+                .setAction("Action", null);
+        View sbView = snackbar.getView();
+        snackbar.show();
     }
+
+    @Override
+    public void showErrorSnackBar(String err) {
+        Snackbar snackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), err, Snackbar.LENGTH_LONG)
+                .setAction("Action", null);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(Color.RED);
+        snackbar.show();
+    }
+
+    @Override
+    public void exit() {
+        Toast.makeText(getApplicationContext(),"Payment successful",Toast.LENGTH_LONG).show();
+        finish();
+    }
+
 
     public void stuff(View v){
         presenter.makePayment();

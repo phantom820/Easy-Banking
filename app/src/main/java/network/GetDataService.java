@@ -31,6 +31,6 @@ public interface GetDataService {
 
 
     @PATCH("/accounts/pay")
-    Call<String>makePayment(@Body Transaction transaction);
+    Call<Object>makePayment(@Body Transaction transaction);
 
 }
