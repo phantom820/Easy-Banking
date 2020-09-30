@@ -33,3 +33,23 @@ notice deposit accounts. The listed aspects still require individuals to physica
 
 ### Backend
 - Flask with MongoDB (retrofit used in app to make http request/api calls)
+
+## Running
+### Pre requisites
+- python3
+- pip
+
+#### AVD
+##### Running server and app
+- cd api
+- pip install -r requirements.txt
+- Run the applicationpy script using python3
+- Run app on AVD
+
+#### Physical device
+#### Running server and app
+- cd api
+- pip install -r requirements.txt
+- Change host address in application.py script to your ip address and then run the script
+- Modify base url by changing the default ip address to your ip address in RetrofitClientInstance.java found in app folder networks directory
+- Run app on device 
