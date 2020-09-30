@@ -29,6 +29,7 @@ notice deposit accounts. The listed aspects still require individuals to physica
 
 ## Implementation details
 ### Frontend
+The MVP architecture as described in ![make-you-hand-dirty-with-mvp-model-view-presenter](https://medium.com/cr8resume/make-you-hand-dirty-with-mvp-model-view-presenter-eab5b5c16e42) was closely followed in writing the source code.
 - AndroidStudio (java)
 
 ### Backend
