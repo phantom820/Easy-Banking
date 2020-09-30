@@ -17,3 +17,10 @@ notice deposit accounts. The listed aspects still require individuals to physica
 - Cashsend 
 - Account migration (i.e change an account from savings to cheque)
 - Card management (stop cards, change active card and so on)
+
+## Implementation details
+### Frontend
+- AndroidStudio (java)
+
+### Backend
+- Flask with MongoDB (retrofit used in app to make http request/api calls)
