@@ -21,7 +21,7 @@ public class RegistrationActivityPresenter {
     }
 
     public void updateIdentityNumber(String identityNumber){
-        client.setIdentityNumber(identityNumber);
+        client.setIdentityNumber(identityNumber.trim());
     }
 
     public void updateEmail(String email){
