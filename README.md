@@ -1,3 +1,6 @@
+# Easy-Banking
+
+[![Build Status](https://travis-ci.com/phantom820/Easy-Banking.svg?branch=master)](https://travis-ci.com/phantom820/Easy-Banking)
 
 ![Alt text](https://github.com/phantom820/Easy-Banking/blob/master/screenshots/login.png)
 ![Alt text](https://github.com/phantom820/Easy-Banking/blob/master/screenshots/registration.png)
@@ -6,9 +9,7 @@
 ![Alt text](https://github.com/phantom820/Easy-Banking/blob/master/screenshots/manage_accounts.png)
 ![Alt text](https://github.com/phantom820/Easy-Banking/blob/master/screenshots/Transfer.png)
 ![Alt text](https://github.com/phantom820/Easy-Banking/blob/master/screenshots/transaction2.png)
-# Easy-Banking
 
-[![Build Status](https://travis-ci.com/phantom820/Easy-Banking.svg?branch=master)](https://travis-ci.com/phantom820/Easy-Banking)
 
 A dummy mobile banking application that aims to provide users with an easy,reliable and convenient banking experience. Users open their preferred account type 
 upon registration and synthetic transactions are generated along with other user account details. The main idea is to digitize the entire banking experience although
